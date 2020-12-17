@@ -2,6 +2,7 @@ import cv2 as cv
 import numpy as np
 import time
 from Stream import VideoStream
+from Adressing import Address
 
 
 # 'rtsp://admin:AdminNLT!1@192.168.254.18:554?tcp'
@@ -20,7 +21,7 @@ class DetectObjectYOLOV3:
         # Paths to .cfg and .weights
         self.Config = 'data/yolov3.cfg'
         self.Weights = 'data/yolov3.weights'
-        # Reading a network model stored in Darknet model files.
+        # Reading a network model stored in model files.
         self.net = cv.dnn.readNetFromDarknet(self.Config, self.Weights)
         self.net.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
         # Selecting a target device for computing
